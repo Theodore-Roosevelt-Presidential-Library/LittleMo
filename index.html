@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Little Missouri: River Today, Then &amp; Now — Theodore Roosevelt Presidential Library</title>
+<meta name="description" content="Live conditions on the Little Missouri River at Medora, North Dakota, beside the river Theodore Roosevelt knew in the 1880s: ice jams, drought, floods and 120 years of gage records, with old survey plats and aerial photos laid over today's imagery.">
+<link rel="canonical" href="https://littlemo.labs.trlibrary.com/">
+<meta property="og:title" content="The Little Missouri — River Today, Then &amp; Now">
+<meta property="og:description" content="Today's river at Medora, the river Theodore Roosevelt wrote about, and 120 years of records in between.">
+<meta property="og:image" content="https://littlemo.labs.trlibrary.com/assets/photos/hero-cottonwoods.jpg">
+<meta property="og:url" content="https://littlemo.labs.trlibrary.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#163728">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='12' fill='%2325282A'/%3E%3Ctext x='50' y='62' text-anchor='middle' font-family='Georgia,serif' font-size='44' font-weight='bold' fill='%23ffffff'%3ET.R.%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <a href="https://www.trlibrary.com/" aria-label="Theodore Roosevelt Presidential Library"><img src="assets/trpl-logo.svg" alt="Theodore Roosevelt Presidential Library"></a>
+    <a href="https://www.trlibrary.com/visit">Plan a visit to the Library →</a>
+  </div>
+</header>
+
+<div class="hero" style="background-image:url('assets/photos/hero-cottonwoods.jpg')">
+  <div class="wrap">
+    <div class="eyebrow">Medora, North Dakota · Theodore Roosevelt National Park</div>
+    <h1>The Little Missouri</h1>
+    <p>The river Theodore Roosevelt ranched beside, chased boat thieves down and watched freeze, flood and run dry. Check today's river, then see how it compares with the one he knew.</p>
+    <div class="hero-now" id="hero-now" aria-live="polite">
+      <span class="pulse" aria-hidden="true"></span><span>Checking the river at Medora…</span>
+    </div>
+  </div>
+  <div class="hero-credit" data-credit="hero-cottonwoods"></div>
+</div>
+
+<nav class="tabs" aria-label="Little Missouri sections">
+  <div class="wrap" role="tablist">
+    <button role="tab" data-view="today" aria-selected="true">Today's River</button>
+    <button role="tab" data-view="then">Then &amp; Now</button>
+    <button role="tab" data-view="maps">Maps</button>
+    <button role="tab" data-view="record">The Record</button>
+    <button role="tab" data-view="paddle">Paddle It</button>
+  </div>
+</nav>
+
+<main>
+  <!-- TODAY -->
+  <section class="panel" data-panel="today">
+    <div class="wrap">
+      <div class="panel-head">
+        <div>
+          <div class="eyebrow">Live from the U.S. Geological Survey gage</div>
+          <h2>Today's River</h2>
+          <p class="lede">Readings come in every 15 minutes from the gage at the Medora bridge, compared with every year on record for the same date.</p>
+        </div>
+        <button class="btn line small" type="button" id="refresh">Refresh</button>
+      </div>
+
+      <div id="alerts"></div>
+
+      <div class="now-grid">
+        <article class="now-main box" id="now-main">
+          <div class="loading">Loading the latest reading…</div>
+        </article>
+        <aside class="now-side">
+          <div class="box stat-box" id="paddle-status"></div>
+          <div class="box stat-box" id="flood-status"></div>
+          <div class="box stat-box" id="weather-box"></div>
+        </aside>
+      </div>
+
+      <div class="box chart-box">
+        <div class="chart-head">
+          <div>
+            <h3>The last 30 days at Medora</h3>
+            <p class="small">River flow, cubic feet per second. The shaded band is the normal range for each date: the middle half of all years on record.</p>
+          </div>
+          <div class="chips" id="chart-param" role="group" aria-label="Measure">
+            <button class="chip" data-p="flow" aria-pressed="true">Flow</button>
+            <button class="chip" data-p="stage" aria-pressed="false">Gage height</button>
+          </div>
+        </div>
+        <div id="chart-30" class="chart" role="img" aria-label="Chart of river flow at Medora over the last 30 days"></div>
+        <div class="legend-row small">
+          <span><i class="sw line-now"></i> This year</span>
+          <span><i class="sw band"></i> Normal range (25th–75th percentile)</span>
+          <span><i class="sw line-med"></i> Median</span>
+        </div>
+      </div>
+
+      <h3 class="sub">Along the river</h3>
+      <p class="small">Water reaches Medora from the Marmarth gage upstream, in the state's southwest corner, and passes the Elkhorn on its way to the Watford City gage below the park's North Unit. Not every bend has a gage.</p>
+      <div class="reach" id="reach"></div>
+
+      <div class="box onthisday" id="onthisday"></div>
+
+      <p class="small fine">Recent readings are provisional and may be revised by the USGS. In winter, ice can make readings unavailable or estimated. For flood information rely on the <a href="https://water.noaa.gov/gauges/MDAN8">National Weather Service</a>; for park roads and trails, <a href="https://www.nps.gov/thro/planyourvisit/conditions.htm">Theodore Roosevelt National Park conditions</a>.</p>
+    </div>
+  </section>
+
+  <!-- THEN & NOW -->
+  <section class="panel" data-panel="then" hidden>
+    <div class="wrap">
+      <div class="panel-head">
+        <div>
+          <div class="eyebrow">Roosevelt's river, measured</div>
+          <h2>Then &amp; Now</h2>
+          <p class="lede">No gage stood on the Little Missouri while Roosevelt ranched here from 1883 to 1898; measurements at Medora began in 1903. What survives from his years are his own words. Each chapter sets them beside what the instruments have recorded since.</p>
+        </div>
+      </div>
+      <div class="story" id="story"></div>
+      <figure class="postcard">
+        <img src="assets/photos/postcard-1930s.jpg" alt="Hand-tinted postcard of the Little Missouri River below a pale butte, framed by a cottonwood branch" loading="lazy">
+        <figcaption data-credit="postcard-1930s"></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- MAPS -->
+  <section class="panel" data-panel="maps" hidden>
+    <div class="wrap">
+      <div class="panel-head">
+        <div>
+          <div class="eyebrow">Then over now</div>
+          <h2>The River Moves</h2>
+          <p class="lede">The Little Missouri cuts into one bank and builds onto the other, so its bends drift across the bottoms. Drag the divider to compare an old map or photograph with today's imagery.</p>
+        </div>
+      </div>
+      <div class="map-controls">
+        <div>
+          <h4>Place</h4>
+          <div class="chips" id="site-chips" role="group" aria-label="Place">
+            <button class="chip" data-site="medora" aria-pressed="true">Medora</button>
+            <button class="chip" data-site="elkhorn" aria-pressed="false">Elkhorn Ranch</button>
+          </div>
+        </div>
+        <div>
+          <h4>Then</h4>
+          <div class="chips" id="era-chips" role="group" aria-label="Old map or photo"></div>
+        </div>
+        <div>
+          <h4>Compare</h4>
+          <div class="chips" id="mode-chips" role="group" aria-label="Comparison style">
+            <button class="chip" data-mode="swipe" aria-pressed="true">Swipe</button>
+            <button class="chip" data-mode="fade" aria-pressed="false">Fade</button>
+          </div>
+          <label class="fade-ctl" id="fade-ctl" hidden>Old <input type="range" id="fade" min="0" max="100" value="70" aria-label="Old layer opacity"> Now</label>
+        </div>
+      </div>
+      <div class="map-wrap">
+        <div id="map" role="region" aria-label="Map comparing the Little Missouri River then and now"></div>
+        <div class="swipe" id="swipe" aria-hidden="true"><span class="lbl l" id="swipe-then">1939</span><span class="handle"></span><span class="lbl r">Today</span></div>
+        <input type="range" id="swipe-range" class="swipe-range" min="0" max="100" value="50" aria-label="Move the divider between the old layer and today">
+      </div>
+      <div class="era-note box" id="era-note"></div>
+    </div>
+  </section>
+
+  <!-- RECORD -->
+  <section class="panel" data-panel="record" hidden>
+    <div class="wrap">
+      <div class="panel-head">
+        <div>
+          <div class="eyebrow">What has been measured, and what hasn't</div>
+          <h2>The Record</h2>
+          <p class="lede">The Medora gage has records back to 1903, but not without breaks. Here is exactly which years exist, every yearly peak, and any past year laid over this one.</p>
+        </div>
+      </div>
+
+      <div class="box">
+        <h3>Which years exist</h3>
+        <p class="small">Solid bars are years with daily flow records. Ticks mark years with only the annual peak on file. Roosevelt's Badlands years come before any measurement.</p>
+        <div id="coverage" class="chart coverage"></div>
+        <div id="coverage-notes" class="small"></div>
+      </div>
+
+      <div class="box">
+        <div class="chart-head">
+          <div>
+            <h3>Every yearly peak at Medora</h3>
+            <p class="small">The highest flow each year, cubic feet per second. Tap a bar for the date and height. Gaps are years with no record.</p>
+          </div>
+          <div class="chips" id="peak-scale" role="group" aria-label="Scale">
+            <button class="chip" data-scale="lin" aria-pressed="true">Linear</button>
+            <button class="chip" data-scale="log" aria-pressed="false">Log</button>
+          </div>
+        </div>
+        <div id="peaks" class="chart" role="img" aria-label="Bar chart of the yearly peak flow at Medora since 1904"></div>
+        <div id="peak-detail" class="small peak-detail" aria-live="polite">Tap a bar.</div>
+      </div>
+
+      <div class="box">
+        <div class="chart-head">
+          <div>
+            <h3>Compare a year</h3>
+            <p class="small">Daily flow through the year on a log scale, so trickles and floods both show. This year is in orange.</p>
+          </div>
+          <label class="small">Gage
+            <select id="cmp-site">
+              <option value="06336000">Medora</option>
+              <option value="06337000">Watford City</option>
+              <option value="06335500">Marmarth</option>
+            </select>
+          </label>
+        </div>
+        <div class="chips" id="cmp-years" role="group" aria-label="Years to compare"></div>
+        <div id="compare" class="chart" role="img" aria-label="Chart comparing daily river flow in selected years"></div>
+        <div id="cmp-legend" class="legend-row small"></div>
+      </div>
+
+      <div class="box">
+        <h3>Records</h3>
+        <div class="records" id="records"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PADDLE -->
+  <section class="panel" data-panel="paddle" hidden>
+    <div class="wrap">
+      <div class="panel-head">
+        <div>
+          <div class="eyebrow">Canoe and kayak</div>
+          <h2>Paddle It</h2>
+          <p class="lede">Roosevelt and his men took a homemade scow down the Little Missouri in ice. Most paddlers wait for May and June, when snowmelt fills the channel.</p>
+        </div>
+      </div>
+      <div class="two">
+        <div>
+          <div class="box stat-box big" id="paddle-big"></div>
+          <div class="box">
+            <h3>Is there enough water?</h3>
+            <p>The National Park Service gauges paddling by the Medora reading:</p>
+            <table class="tbl left">
+              <tr><th>At Medora</th><th>Boating</th></tr>
+              <tr><td>Under 699 cfs (about 2.5 ft)</td><td>Too low. Expect to drag and portage.</td></tr>
+              <tr><td>699–1,500 cfs (2.5–3.5 ft)</td><td>Fair to good</td></tr>
+              <tr><td>Over 1,500 cfs</td><td>Above the range NPS lists as good. Fast, cold water; check with rangers.</td></tr>
+            </table>
+            <p class="small">Water levels change daily. Easy paddling one day can mean frequent portages the next. Summer thunderstorms can raise the river with little or no warning.</p>
+          </div>
+        </div>
+        <div>
+          <div class="box">
+            <h3>Distances</h3>
+            <table class="tbl">
+              <tr><td>Medora bridge to Cottonwood Campground</td><td>3.5 mi</td></tr>
+              <tr><td>Cottonwood Campground to Elkhorn Ranch</td><td>36 mi</td></tr>
+              <tr><td>Medora to Long X Bridge (U.S. 85, North Unit)</td><td>107.5 mi, about 5 days</td></tr>
+              <tr><td>Long X Bridge to Lost Bridge</td><td>about 2 days</td></tr>
+            </table>
+            <h3>Before you go</h3>
+            <ul class="tight">
+              <li>A free backcountry permit is required to camp overnight in the national park. Get one at any park visitor center.</li>
+              <li>Fences, some electrified, may be strung across the water anywhere along the river.</li>
+              <li>There are no reliable sources of drinking water on the river. Carry your own.</li>
+              <li>Cell phones may not work, and help can be hours or days away.</li>
+              <li>No fires inside the national park. Give bison and horses a wide berth.</li>
+            </ul>
+            <p class="small">Source: National Park Service, <a href="https://www.nps.gov/thro/planyourvisit/canoeing-kayaking.htm">Canoeing &amp; Kayaking, Theodore Roosevelt National Park</a>. Confirm current rules with the park before you launch.</p>
+          </div>
+        </div>
+      </div>
+      <div class="links">
+        <a href="https://www.trlibrary.com/visit"><b>Visit the Library</b><span>Start your river day at the Theodore Roosevelt Presidential Library in Medora.</span></a>
+        <a href="https://elkhornguide.labs.trlibrary.com/"><b>Elkhorn Ranch Guide</b><span>Walk to the foundation stones of Roosevelt's home ranch.</span></a>
+        <a href="https://wildlife.labs.trlibrary.com/"><b>Wildlife Watch</b><span>Bison, wild horses and where to find them.</span></a>
+        <a href="https://geology.labs.trlibrary.com/"><b>Read the Rocks</b><span>How the river carved the Badlands.</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>The Little Missouri is a guide from the <a href="https://www.trlibrary.com/">Theodore Roosevelt Presidential Library</a> in Medora, North Dakota.</div>
+    <div>River data: <a href="https://waterdata.usgs.gov/monitoring-location/USGS-06336000/">U.S. Geological Survey</a> gages 06335500 (Marmarth), 06336000 (Medora) and 06337000 (Watford City); flood stages and alerts from the <a href="https://water.noaa.gov/">National Weather Service</a>; weather from <a href="https://open-meteo.com/">Open-Meteo</a> (CC BY 4.0). Maps: General Land Office plats and Billings County aerial photographs as georeferenced by the <a href="https://aerial.dwr.nd.gov/">North Dakota Department of Water Resources</a>; 1957–62 aerials from the <a href="https://www.gis.nd.gov/">North Dakota GIS Hub</a>; USGS historical topographic maps and The National Map imagery. Old photos are not orthorectified and can be off by tens of meters. Roosevelt quotations are transcribed from the editions cited. <a href="#" id="photo-credits-link">Photo credits</a>.</div>
+    <div id="photo-credits" hidden></div>
+    <div id="data-stamp" class="small-foot"></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

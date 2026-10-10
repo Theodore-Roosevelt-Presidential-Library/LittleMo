@@ -1,0 +1,36 @@
+name: Rebuild river history
+
+on:
+  schedule:
+    - cron: "41 10 * * 1"   # Mondays, early morning in Medora
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-history
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Pull USGS daily and peak records
+        run: python3 scripts/build_history.py data
+      - name: Commit if changed
+        run: |
+          git config user.name "little-mo-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/history.json data/daily-*.json
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Rebuild river history $(date -u +%Y-%m-%d)"
+            git push
+          fi

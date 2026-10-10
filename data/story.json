@@ -1,0 +1,186 @@
+{
+  "chapters": [
+    {
+      "id": "1805",
+      "when": "April 12, 1805",
+      "title": "Before the ranches",
+      "then": [
+        {
+          "text": "Meriwether Lewis measured the river where it met the Missouri. His journal entry, original spelling kept:"
+        },
+        {
+          "quote": "it is 134 yards wide at it's mouth, and sets in with a bould current but it's greatest debth is not more than 2½ feet",
+          "who": "Meriwether Lewis",
+          "cite": "Journal, April 12, 1805",
+          "url": "https://lewisandclarkjournals.unl.edu/item/lc.jrn.1805-04-12"
+        },
+        {
+          "quote": "it's navigation is extreemly difficult, owing to it's rapidity, shoals and sand bars.",
+          "who": "Meriwether Lewis",
+          "cite": "Journal, April 12, 1805",
+          "url": "https://lewisandclarkjournals.unl.edu/item/lc.jrn.1805-04-12"
+        }
+      ],
+      "now": "The mouth Lewis measured now lies under Lake Sakakawea, the reservoir behind Garrison Dam. North Dakota designated the Little Missouri a State Scenic River in 1975, to keep it, in the words of the law, \"in a free-flowing natural condition\" from the South Dakota line to the lake.",
+      "nowSrc": "N.D. Century Code ch. 61-29",
+      "nowUrl": "https://ndlegis.gov/cencode/t61c29.pdf"
+    },
+    {
+      "id": "1883",
+      "when": "September 1883",
+      "title": "A broad, shallow bed",
+      "then": [
+        {
+          "quote": "I first reached the Little Missouri on a Northern Pacific train about three in the morning of a cool September day in 1883.",
+          "who": "Theodore Roosevelt",
+          "cite": "An Autobiography (1913), ch. IV, \"In Cowboy Land\"",
+          "url": "https://www.gutenberg.org/ebooks/3335"
+        },
+        {
+          "text": "Within two years he had written the river's character into his first Badlands book:"
+        },
+        {
+          "quote": "This, like most other plains rivers, has a broad, shallow bed, through which in times of freshets runs a muddy torrent, that neither man nor beast can pass; at other seasons of the year it is very shallow, spreading out into pools, between which the trickling water may be but a few inches deep. Even then, however, it is not always easy to cross, for the bottom is filled with quicksands and mud-holes.",
+          "who": "Theodore Roosevelt",
+          "cite": "Hunting Trips of a Ranchman (1885), ch. I, \"Ranching in the Bad Lands\"",
+          "url": "https://archive.org/details/huntingtripsofra00roosiala"
+        }
+      ],
+      "nowKey": "extremes"
+    },
+    {
+      "id": "elkhorn",
+      "when": "1884–1885",
+      "title": "The Elkhorn bottom",
+      "then": [
+        {
+          "text": "About 35 miles north of Medora, Roosevelt built his home ranch of cottonwood logs on the west bank, facing east across the river."
+        },
+        {
+          "quote": "Just in front of the ranch veranda is a line of old cottonwoods that shade it during the fierce heats of summer, rendering it always cool and pleasant. But a few feet beyond these trees comes the cut-off bank of the river, through whose broad, sandy bed the shallow stream winds as if lost, except when a freshet fills it from brim to brim with foaming yellow water.",
+          "who": "Theodore Roosevelt",
+          "cite": "Ranch Life and the Hunting-Trail (1888), ch. III, \"The Home Ranch\"",
+          "url": "https://archive.org/details/ranchlifehunting00roosrich"
+        }
+      ],
+      "now": "Only the foundation stones of the house remain, in the Elkhorn Ranch Unit of Theodore Roosevelt National Park. No gage stands at the Elkhorn; the nearest is downstream near Watford City, below the park's North Unit. Lay the 1939 aerial photograph over today's imagery on the map to see how the river has moved across the bottom.",
+      "nowLink": { "label": "Compare the Elkhorn bottom then and now", "view": "maps", "site": "elkhorn" }
+    },
+    {
+      "id": "1886-ice",
+      "when": "March–April 1886",
+      "title": "The Ox-bow jam and the boat thieves",
+      "then": [
+        {
+          "quote": "In 1886 the ice went out of the upper river very early, during the first part of February; but it at times almost froze over again, the bottom ice did not break up, and a huge gorge, scores of miles in length, formed in and above the bend known as the Ox-bow, a long distance up-stream from my ranch. About the middle of March this great Ox-bow jam came down past us.",
+          "who": "Theodore Roosevelt",
+          "cite": "Ranch Life and the Hunting-Trail (1888), ch. VIII, \"Sheriff's Work on a Ranch\"",
+          "url": "https://archive.org/details/ranchlifehunting00roosrich"
+        },
+        {
+          "quote": "It moved slowly, its front forming a high, crumbling wall, and creaming over like an immense breaker on the seashore: we could hear the dull roaring and crunching as it plowed down the river-bed long before it came in sight round the bend above us.",
+          "who": "Theodore Roosevelt",
+          "cite": "Ranch Life and the Hunting-Trail (1888), ch. VIII",
+          "url": "https://archive.org/details/ranchlifehunting00roosrich"
+        },
+        {
+          "text": "On March 24 thieves took the Elkhorn boat. Roosevelt, Bill Sewall and Wilmot Dow built a flat-bottomed scow, set off downstream on March 30 and caught the three men on April 1. The ice jam then held all six of them on the river for days. Roosevelt walked and drove the prisoners overland and turned them over to the sheriff in Dickinson in mid-April. He wrote to Henry Cabot Lodge:"
+        },
+        {
+          "quote": "I got the three horsethieves in fine style. My two Maine men and I ran down the river three days in our boat and then came on their camp by surprise.",
+          "who": "Theodore Roosevelt",
+          "cite": "Letter to Henry Cabot Lodge, April 16, 1886",
+          "url": "https://archive.org/details/selectionsfromco0001theo"
+        }
+      ],
+      "nowKey": "spring"
+    },
+    {
+      "id": "1886-drought",
+      "when": "Summer 1886",
+      "title": "Drought",
+      "then": [
+        {
+          "text": "The spring of ice gave way to a dry summer. Writing of the winter that followed, Roosevelt looked back on it:"
+        },
+        {
+          "quote": "The preceding summer we had been visited by a prolonged drought, so that the short, scanty grass was already well cropped down",
+          "who": "Theodore Roosevelt",
+          "cite": "Ranch Life and the Hunting-Trail (1888), ch. V, \"Winter Weather\"",
+          "url": "https://archive.org/details/ranchlifehunting00roosrich"
+        }
+      ],
+      "nowKey": "drought"
+    },
+    {
+      "id": "1887",
+      "when": "Winter 1886–87",
+      "title": "The hard winter",
+      "then": [
+        {
+          "quote": "The snow-fall was unprecedented, both for its depth and for the way it lasted; and it was this, and not the cold, that caused the loss.",
+          "who": "Theodore Roosevelt",
+          "cite": "Ranch Life and the Hunting-Trail (1888), ch. V, \"Winter Weather\"",
+          "url": "https://archive.org/details/ranchlifehunting00roosrich"
+        },
+        {
+          "text": "The river bottoms gave some shelter:"
+        },
+        {
+          "quote": "On the other hand, hundreds wintered on the great thickly wooded bottoms near my ranch house with little more than ordinary loss, though a skinny sorry-looking crew by the time the snow melted.",
+          "who": "Theodore Roosevelt",
+          "cite": "Ranch Life and the Hunting-Trail (1888), ch. V",
+          "url": "https://archive.org/details/ranchlifehunting00roosrich"
+        },
+        {
+          "text": "When the thaw came in March, the neighbor Lincoln Lang watched the river from his family's ranch south of Medora. Roosevelt was still in Europe. Lang remembered:"
+        },
+        {
+          "quote": "as we gazed we could see countless carcasses of cattle going down with the ice, rolling over and over as they went",
+          "who": "Lincoln Lang",
+          "cite": "as quoted in Hermann Hagedorn, Roosevelt in the Bad Lands (1921), ch. XXV",
+          "url": "https://www.gutenberg.org/ebooks/24317"
+        },
+        {
+          "text": "Roosevelt rode his range in April and wrote to Lodge from the Elkhorn:"
+        },
+        {
+          "quote": "Well, we have had a perfect smashup all through the cattle country of the northwest. The losses are crippling.",
+          "who": "Theodore Roosevelt",
+          "cite": "Letter to Henry Cabot Lodge, Elkhorn Ranch, April 20, 1887",
+          "url": "https://archive.org/details/selectionsfromco0001theo"
+        }
+      ],
+      "nowKey": "breakup"
+    },
+    {
+      "id": "sudden",
+      "when": "One summer at the ranch",
+      "title": "Overnight",
+      "then": [
+        {
+          "quote": "Last evening, when the moon rose, from the ranch veranda we could see the river-bed almost dry, the stream having shrunk under the drought till it was little but a string of shallow pools, with between them a trickle of water that was not ankle deep, and hardly wet the fetlocks of the saddle-band when driven across it; yet at daybreak this morning, without any rain having fallen near us, but doubtless in consequence of some heavy cloudburst near its head, the swift, swollen current was foaming brim high between the banks, and even the fords were swimming-deep for the horses.",
+          "who": "Theodore Roosevelt",
+          "cite": "Ranch Life and the Hunting-Trail (1888), ch. VIII",
+          "url": "https://archive.org/details/ranchlifehunting00roosrich"
+        }
+      ],
+      "nowKey": "surge"
+    },
+    {
+      "id": "unmapped",
+      "when": "1880s",
+      "title": "Unsurveyed and unmapped",
+      "then": [
+        {
+          "quote": "The country is yet unsurveyed and unmapped; the course of the river itself, as put down on the various Government and railroad maps, is very much a mere piece of guesswork, its bed being in many parts — as by my ranch — ten or fifteen miles, or more, away from where these maps make it.",
+          "who": "Theodore Roosevelt",
+          "cite": "Ranch Life and the Hunting-Trail (1888), ch. VIII",
+          "url": "https://archive.org/details/ranchlifehunting00roosrich"
+        }
+      ],
+      "now": "Government surveyors soon walked the bottoms and drew the river's banks onto township plats. Those plats, the 1939 and 1957 aerial photographs and the 1970s topographic maps can all be laid over today's imagery at Medora and the Elkhorn.",
+      "nowLink": { "label": "Open the then-and-now maps", "view": "maps", "site": "medora" }
+    }
+  ]
+}
